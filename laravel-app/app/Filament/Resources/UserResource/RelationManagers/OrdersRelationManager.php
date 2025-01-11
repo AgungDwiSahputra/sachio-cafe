@@ -63,6 +63,11 @@ class OrdersRelationManager extends RelationManager
                 TextColumn::make('payment_status')
                     ->sortable()
                     ->badge()
+                    ->color(fn (string $state):string => match($state){
+                        'pending' => 'warning',
+                        'paid' => 'success',
+                        'failed' => 'danger'
+                    })
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->label('Order Date')

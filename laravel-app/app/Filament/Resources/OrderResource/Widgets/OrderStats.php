@@ -20,8 +20,12 @@ class OrderStats extends BaseWidget
                 ->color('danger'),
             Stat::make('Orders Delivered', Order::query()->where('status', 'delivered')->count())
                 ->color('success'),
-            Stat::make('Average Price', Number::currency(Order::query()->avg('grand_total'), 'IDR')),
-            Stat::make('Total Price', Number::currency(Order::query()->sum('grand_total'), 'IDR')),
+            // Stat::make('Average Price', Number::currency(Order::query()->avg('grand_total'), 'IDR')),
+            // Stat::make('Total Price', Number::currency(Order::query()->sum('grand_total'), 'IDR')),
+
+            // Pastikan nilai default untuk avg dan sum
+            Stat::make('Average Price', Number::currency(Order::query()->avg('grand_total') ?? 0, 'IDR')),
+            Stat::make('Total Price', Number::currency(Order::query()->sum('grand_total') ?? 0, 'IDR')),
         ]; 
     }
 }
