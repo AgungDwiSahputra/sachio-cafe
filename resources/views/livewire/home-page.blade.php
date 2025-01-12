@@ -21,23 +21,31 @@
                 </div>
             </div>
             <!-- Right Content (Image Placeholder) -->
-            <div class="lg:w-1/2 flex justify-center lg:justify-end mt-12 lg:mt-0">
-                <div class="w-80 h-80 bg-gray-800 border-4 border-yellow-500 relative rounded-lg">
-                    <div class="absolute w-72 h-72 bg-black inset-4"></div>
+            <div class="lg:w-1/2 h-96 lg:flex hidden justify-center lg:justify-end mt-12 lg:mt-0">
+                <div class="relative w-full h-full">
+                    <div class="absolute top-0 right-8 w-96 h-96 rounded-lg shadow-lg object-cover border-2 border-yellow-500"></div>
+                    <div class="absolute top-4 right-4 w-96 h-96 rounded-lg shadow-lg object-cover border-2 border-yellow-500"></div>
+                    <img src="{{ asset('assets/images/logo.jpg') }}" alt="Sachio Cafe" class="absolute top-8 right-0 w-96 h-96 rounded-lg shadow-lg object-cover">
                 </div>
             </div>
         </div>
+        <img src="{{ asset('assets/images/hero-siluet-1.png') }}" alt="Siluet Bunga" class="absolute left-0 bottom-0">
+        <img src="{{ asset('assets/images/hero-siluet-2.png') }}" alt="Siluet Coffee" class="absolute sm:block hidden lg:left-1/2 lg:top-1/4 right-0 top-20 lg:translate-x-[-0%] lg:translate-y-[-100%]">
+        <img src="{{ asset('assets/images/hero-siluet-2.png') }}" alt="Siluet Coffee" class="absolute sm:block hidden lg:left-1/2 lg:top-1/4 sm:right-32 sm:top-80 lg:translate-x-[70%] lg:translate-y-[50%] opacity-85">
+        <img src="{{ asset('assets/images/hero-siluet-2.png') }}" alt="Siluet Coffee" class="absolute sm:block hidden lg:left-1/2 lg:bottom-1/2 right-20 bottom-52 lg:translate-x-[-100%] lg:translate-y-[0%] opacity-60">
+        <img src="{{ asset('assets/images/hero-siluet-2.png') }}" alt="Siluet Coffee" class="absolute sm:block hidden lg:left-1/2 lg:bottom-1/4 right-52 bottom-10 lg:translate-x-[-0%] lg:translate-y-[-0%] opacity-30">
     </header>
 
     <!-- About Us Section -->
-    <section class="py-16 pb-32 bg-white">
+    <section class="py-16 pb-28 bg-white">
         <div class="max-w-screen-xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <!-- Left Content -->
-            <div class="relative">
+            <div class="relative h-[400px] lg:block hidden">
+                <img src="{{ asset('assets/images/dot_shapes.png') }}" alt="About Us 1" class="absolute top-0 right-1/4 h-32 rounded-lg object-cover">
                 <!-- First Image -->
-                <div class="w-full h-64 bg-gray-300 rounded-lg shadow-lg"></div>
+                <img src="{{ asset('assets/images/about_us1.webp') }}" alt="About Us 1" class="absolute top-0 right-1/3 h-72 rounded-lg shadow-lg object-cover">
                 <!-- Second Image -->
-                <div class="absolute bottom-0 left-8 w-64 h-40 bg-gray-300 rounded-lg shadow-lg transform translate-y-16 lg:translate-y-24"></div>
+                <img src="{{ asset('assets/images/about_us2.webp') }}" alt="About Us 2" class="absolute bottom-1/4 left-8 w-64 h-40 rounded-lg shadow-lg transform translate-y-16 lg:translate-y-24 object-cover">
             </div>
 
             <!-- Right Content -->
@@ -78,83 +86,116 @@
 
             <!-- Content Grid -->
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+
                 <!-- Left Column -->
-                <div class="space-y-8">
-                    <!-- Item 1 -->
-                    <div class="flex items-center space-x-4">
-                        <div class="w-16 h-16 flex items-center justify-center bg-gray-200 rounded-full">
-                            <!-- Icon Placeholder -->
-                            <div class="w-10 h-10 bg-gray-300 rounded"></div>
+                <div class="space-y-8 lg:order-1 order-2">
+                    @if (count($categories) == 0)
+                        <!-- Item 1 -->
+                        <div class="flex items-center space-x-4">
+                            <div class="w-16 h-16 flex items-center justify-center bg-gray-200 rounded-full">
+                                <!-- Icon Placeholder -->
+                                <div class="w-10 h-10 bg-gray-300 rounded"></div>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold">Ammericano</h3>
+                                <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo augue nibh est nisi.</p>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="text-lg font-bold">Cappuccino</h3>
-                            <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo augue nibh est nisi.</p>
+                        <!-- Item 2 -->
+                        <div class="flex items-center space-x-4">
+                            <div class="w-16 h-16 flex items-center justify-center bg-gray-200 rounded-full">
+                                <!-- Icon Placeholder -->
+                                <div class="w-10 h-10 bg-gray-300 rounded"></div>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold">Coffe Milk</h3>
+                                <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo augue nibh est nisi.</p>
+                            </div>
                         </div>
-                    </div>
-                    <!-- Item 2 -->
-                    <div class="flex items-center space-x-4">
-                        <div class="w-16 h-16 flex items-center justify-center bg-gray-200 rounded-full">
-                            <!-- Icon Placeholder -->
-                            <div class="w-10 h-10 bg-gray-300 rounded"></div>
+                        <!-- Item 3 -->
+                        <div class="flex items-center space-x-4">
+                            <div class="w-16 h-16 flex items-center justify-center bg-gray-200 rounded-full">
+                                <!-- Icon Placeholder -->
+                                <div class="w-10 h-10 bg-gray-300 rounded"></div>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold">Arabica</h3>
+                                <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo augue nibh est nisi.</p>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="text-lg font-bold">Cafe Latte</h3>
-                            <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo augue nibh est nisi.</p>
-                        </div>
-                    </div>
-                    <!-- Item 3 -->
-                    <div class="flex items-center space-x-4">
-                        <div class="w-16 h-16 flex items-center justify-center bg-gray-200 rounded-full">
-                            <!-- Icon Placeholder -->
-                            <div class="w-10 h-10 bg-gray-300 rounded"></div>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-bold">Dark Coffee</h3>
-                            <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo augue nibh est nisi.</p>
-                        </div>
-                    </div>
+                    @else
+                        @foreach ($categories->take(3) as $key => $item)
+                            <!-- Item -->
+                            <div class="flex items-center space-x-4" wire:key="{{ $item->id }}">
+                                <div class="w-16 h-16 flex items-center justify-center bg-gray-200 rounded-full">
+                                    <!-- Icon Placeholder -->
+                                    <div class="w-10 h-10 bg-gray-300 rounded"></div>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold">{{ $item->name }}</h3>
+                                    <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo augue nibh est nisi.</p>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
                 </div>
 
                 <!-- Center Image -->
-                <div class="flex justify-center">
-                    <div class="w-64 h-80 bg-gray-300 rounded-lg shadow-lg"></div>
+                <div class="flex justify-center lg:order-2 order-1">
+                    <img src="{{ asset('assets/images/category_image.webp') }}" alt="Image Category" class="w-64 h-80 rounded-lg shadow-lg object-cover">
                 </div>
 
                 <!-- Right Column -->
-                <div class="space-y-8">
-                    <!-- Item 1 -->
-                    <div class="flex items-center space-x-4">
-                        <div class="w-16 h-16 flex items-center justify-center bg-gray-200 rounded-full">
-                            <!-- Icon Placeholder -->
-                            <div class="w-10 h-10 bg-gray-300 rounded"></div>
+                <div class="space-y-8 lg:order-3 order-3">
+                    @if (count($categories) < 4)
+                        <!-- Item 1 -->
+                        <div class="flex items-center space-x-4">
+                            <div class="w-16 h-16 flex items-center justify-center bg-gray-200 rounded-full">
+                                <!-- Icon Placeholder -->
+                                <div class="w-10 h-10 bg-gray-300 rounded"></div>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold">Turkish Coffee</h3>
+                                <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo augue nibh est nisi.</p>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="text-lg font-bold">Turkish Coffee</h3>
-                            <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo augue nibh est nisi.</p>
+                        <!-- Item 2 -->
+                        <div class="flex items-center space-x-4">
+                            <div class="w-16 h-16 flex items-center justify-center bg-gray-200 rounded-full">
+                                <!-- Icon Placeholder -->
+                                <div class="w-10 h-10 bg-gray-300 rounded"></div>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold">Pancakes</h3>
+                                <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo augue nibh est nisi.</p>
+                            </div>
                         </div>
-                    </div>
-                    <!-- Item 2 -->
-                    <div class="flex items-center space-x-4">
-                        <div class="w-16 h-16 flex items-center justify-center bg-gray-200 rounded-full">
-                            <!-- Icon Placeholder -->
-                            <div class="w-10 h-10 bg-gray-300 rounded"></div>
+                        <!-- Item 3 -->
+                        <div class="flex items-center space-x-4">
+                            <div class="w-16 h-16 flex items-center justify-center bg-gray-200 rounded-full">
+                                <!-- Icon Placeholder -->
+                                <div class="w-10 h-10 bg-gray-300 rounded"></div>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold">Coffee Bag</h3>
+                                <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo augue nibh est nisi.</p>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="text-lg font-bold">Pancakes</h3>
-                            <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo augue nibh est nisi.</p>
-                        </div>
-                    </div>
-                    <!-- Item 3 -->
-                    <div class="flex items-center space-x-4">
-                        <div class="w-16 h-16 flex items-center justify-center bg-gray-200 rounded-full">
-                            <!-- Icon Placeholder -->
-                            <div class="w-10 h-10 bg-gray-300 rounded"></div>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-bold">Coffee Bag</h3>
-                            <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo augue nibh est nisi.</p>
-                        </div>
-                    </div>
+                    @else
+                        @foreach ($categories->slice(-3) as $key => $item)
+                            <!-- Item -->
+                            <div class="flex items-center space-x-4" wire:key="{{ $item->id }}">
+                                <div class="w-16 h-16 flex items-center justify-center bg-gray-200 rounded-full">
+                                    <!-- Icon Placeholder -->
+                                    <div class="w-10 h-10 bg-gray-300 rounded"></div>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold">{{ $item->name }}</h3>
+                                    <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo augue nibh est nisi.</p>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>
@@ -165,30 +206,22 @@
         <div class="max-w-screen-xl mx-auto px-6">
             <h2 class="text-3xl font-bold text-center mb-8">Our Menu</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-gray-100 rounded-lg shadow-lg p-4">
-                    <div class="w-full h-48 bg-gray-300 mb-4 rounded-lg"></div>
-                    <h3 class="text-xl font-bold">Legit</h3>
-                    <p class="text-gray-600">Rp. 15,000</p>
-                </div>
-                <div class="bg-gray-100 rounded-lg shadow-lg p-4">
-                    <div class="w-full h-48 bg-gray-300 mb-4 rounded-lg"></div>
-                    <h3 class="text-xl font-bold">Original</h3>
-                    <p class="text-gray-600">Rp. 15,000</p>
-                </div>
-                <div class="bg-gray-100 rounded-lg shadow-lg p-4">
-                    <div class="w-full h-48 bg-gray-300 mb-4 rounded-lg"></div>
-                    <h3 class="text-xl font-bold">4199</h3>
-                    <p class="text-gray-600">Rp. 10,000</p>
-                </div>
+                @foreach ($products as $item)
+                    <div class="bg-gray-100 rounded-lg shadow-lg p-4" wire:key="{{ $item->id }}">
+                        <img src="{{ url('storage', $item->images[0]) }}" alt="{{ $item->slug }}" class="w-full h-48 mb-4 rounded-lg object-cover">
+                        <h3 class="text-xl font-bold">{{ $item->name }}</h3>
+                        <p class="text-gray-600">Rp. {{ number_format($item->price, 0, ',', '.') }}</p>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>
 
     <!-- Testimonial Section -->
     <section class="py-16 bg-white">
-        <div class="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center px-6">
+        <div class="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center px-6">
             <!-- Left Content -->
-            <div class="bg-black text-white p-8 rounded-lg relative">
+            <div class="bg-black text-white p-8 rounded-lg rounded-e-none relative">
                 <h2 class="text-3xl font-bold mb-6 text-center">Our customer say</h2>
                 <div class="text-center">
                     <p class="text-yellow-500 text-6xl font-bold mb-4">“</p>
@@ -205,12 +238,12 @@
             </div>
 
             <!-- Right Content (Image Placeholder) -->
-            <div class="w-full h-80 bg-gray-300 rounded-lg"></div>
+            <img src="{{ asset('assets/images/testimoni.webp') }}" alt="Testimoni Background Section" class="h-full object-cover">
         </div>
     </section>
 
     <!-- Blog Section -->
-    <section class="py-16 bg-gray-100">
+    {{-- <section class="py-16 bg-gray-100">
         <div class="max-w-screen-xl mx-auto px-6">
             <h2 class="text-3xl font-bold text-center mb-8">Latest News & Blog</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -234,5 +267,5 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 </div>
