@@ -12,8 +12,8 @@ class HomePage extends Component
 {
     public function render()
     {
-        $categories = Category::all();
-        $products = Product::with('category')->get();
+        $categories = Category::where('is_active', 1)->get();
+        $products = Product::where(['is_active' => 1, 'on_sale' => 1, 'in_stock' => 1])->get();
 
         $data = [
             'categories'=> $categories,
