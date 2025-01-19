@@ -42,7 +42,7 @@
                             <h2 class="text-2xl font-bold dark:text-gray-400">Price</h2>
                             <div class="w-16 pb-2 mb-6 border-b border-rose-600 dark:border-gray-400"></div>
                             <div>
-                                <p class="font-semibold">Rp. {{ number_format($price_range, 0, ',', '.') }}</p>
+                                <p class="font-semibold text-sm">{{ $price_range == 0 ? 'Rp. 0' : 'Rp. 0 - Rp. '. number_format($price_range, 0, ',', '.') }}</p>
                                 <input type="range" class="w-full h-1 mb-4 bg-gray-100 rounded appearance-none cursor-pointer" wire:model.live="price_range" max="100000" value="20000" step="5000">
                                 <div class="flex justify-between">
                                     <span class="inline-block text-lg font-bold">Rp. 0</span>

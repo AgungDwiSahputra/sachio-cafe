@@ -5,49 +5,49 @@
             <div class="flex flex-col md:flex-row gap-4">
                 <div class="md:w-3/4">
                     <div class="bg-white overflow-x-auto rounded-lg shadow-md p-6 mb-4">
-                        <table class="w-full">
-                            <thead>
+                        <table class="w-full min-w-max table-auto border-collapse border-spacing-0">
+                            <thead class="bg-gray-100 dark:bg-gray-800">
                                 <tr>
-                                    <th class="text-left font-semibold">Product</th>
-                                    <th class="text-left font-semibold">Price</th>
-                                    <th class="text-left font-semibold">Quantity</th>
-                                    <th class="text-left font-semibold">Total</th>
-                                    <th class="text-left font-semibold">Remove</th>
+                                    <th class="text-left font-semibold py-3 px-4 text-gray-700 dark:text-gray-300">Product</th>
+                                    <th class="text-left font-semibold py-3 px-4 text-gray-700 dark:text-gray-300">Price</th>
+                                    <th class="text-left font-semibold py-3 px-4 text-gray-700 dark:text-gray-300">Quantity</th>
+                                    <th class="text-left font-semibold py-3 px-4 text-gray-700 dark:text-gray-300">Total</th>
+                                    <th class="text-left font-semibold py-3 px-4 text-gray-700 dark:text-gray-300">Remove</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse ($cart_items as $item)
-                                    <tr>
-                                        <td class="py-4">
+                                    <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700">
+                                        <td class="py-4 px-4">
                                             <div class="flex items-center">
-                                                <img class="h-16 w-16 mr-4" src="{{ url('storage', $item['image']) }}" alt="Image {{ $item['name'] }}">
-                                                <span class="font-semibold">{{ $item['name'] }}</span>
+                                                <img class="h-16 w-16 mr-4 rounded-md object-cover" src="{{ url('storage', $item['image']) }}" alt="Image {{ $item['name'] }}">
+                                                <span class="font-semibold text-gray-800 dark:text-gray-200">{{ Str::limit($item['name'], 35, '...') }}</span>
                                             </div>
                                         </td>
-                                        <td class="py-4">Rp. {{ number_format($item['unit_amount'], 0, ',', '.') }}</td>
-                                        <td class="py-4">
+                                        <td class="py-4 px-4 text-gray-700 dark:text-gray-300">Rp. {{ number_format($item['unit_amount'], 0, ',', '.') }}</td>
+                                        <td class="py-4 px-4">
                                             <div class="flex items-center">
-                                                <button wire:click="decrementQty({{ $item['product_id'] }})" class="border rounded-md py-2 px-4 mr-2">-</button>
-                                                <span class="text-center w-8">{{ $item['quantity'] }}</span>
-                                                <button wire:click="incrementQty({{ $item['product_id'] }})" class="border rounded-md py-2 px-4 ml-2">+</button>
+                                                <button wire:click="decrementQty({{ $item['product_id'] }})" class="border rounded-md py-2 px-4 mr-2 text-gray-700 hover:bg-gray-200 dark:text-gray-300 dark:hover:bg-gray-600">-</button>
+                                                <span class="text-center w-8 text-gray-800 dark:text-gray-200">{{ $item['quantity'] }}</span>
+                                                <button wire:click="incrementQty({{ $item['product_id'] }})" class="border rounded-md py-2 px-4 ml-2 text-gray-700 hover:bg-gray-200 dark:text-gray-300 dark:hover:bg-gray-600">+</button>
                                             </div>
                                         </td>
-                                        <td class="py-4">Rp. {{ number_format($item['total_amount'], 0, ',', '.') }}</td>
-                                        <td>
-                                            <button wire:click="removeItem({{ $item['product_id'] }})" class="bg-slate-300 border-2 border-slate-400 rounded-lg px-3 py-1 hover:bg-red-500 hover:text-white hover:border-red-700">
-                                                <span wire:loading.remove wire:target="removeItem({{ $item['product_id'] }})">Remove</span><span wire:loading wire:target="removeItem({{ $item['product_id'] }})">Loading...</span>
+                                        <td class="py-4 px-4 text-gray-700 dark:text-gray-300">Rp. {{ number_format($item['total_amount'], 0, ',', '.') }}</td>
+                                        <td class="py-4 px-4">
+                                            <button wire:click="removeItem({{ $item['product_id'] }})" class="bg-gray-300 border-2 border-gray-400 rounded-lg px-3 py-1 hover:bg-red-500 hover:text-white hover:border-red-700 dark:bg-gray-700 dark:border-gray-600">
+                                                <span wire:loading.remove wire:target="removeItem({{ $item['product_id'] }})">Remove</span>
+                                                <span wire:loading wire:target="removeItem({{ $item['product_id'] }})">Loading...</span>
                                             </button>
                                         </td>
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="5" class="text-center pt-20 pb-10 text-4xl font-semibold text-slate-500">No items available in cart!</td>
+                                        <td colspan="5" class="text-center py-20 text-4xl font-semibold text-gray-500 dark:text-gray-400">No items available in cart!</td>
                                     </tr>
                                 @endforelse
-                                <!-- More product rows -->
                             </tbody>
                         </table>
-                    </div>
+                    </div>                    
                 </div>
                 <div class="md:w-1/4">
                     <div class="bg-white rounded-lg shadow-md p-6">

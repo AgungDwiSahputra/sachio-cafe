@@ -12,10 +12,10 @@
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Varius sed pharetra dictum neque massa congue.
                 </p>
                 <div class="flex justify-center lg:justify-start space-x-4">
-                    <a href="{{ route('products') }}" type="button" class="px-6 py-3 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-700">
+                    <a href="{{ route('products') }}" class="z-10 px-6 py-3 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-700">
                         Order Now
                     </a>
-                    <a href="{{ route('categories') }}" type="button" class="px-6 py-3 border border-yellow-500 text-yellow-500 font-semibold rounded-lg hover:bg-yellow-600 hover:text-black">
+                    <a href="{{ route('categories') }}" class="z-10 px-6 py-3 border border-yellow-500 text-yellow-500 font-semibold rounded-lg hover:bg-yellow-600 hover:text-black">
                         See Menu
                     </a>
                 </div>
