@@ -5,7 +5,7 @@
                 <div class="flex border-b border-gray-200 dark:border-gray-700 items-stretch justify-end w-full h-full px-4 mb-8 md:flex-row xl:flex-col md:space-x-6 lg:space-x-8 xl:space-x-0">
                     <div class="flex items-start justify-end flex-shrink-0">
                         <div class="flex items-center justify-between w-full pb-6 space-x-4">
-                            <img src="{{ asset('assets/images/logo.jpg') }}" alt="Logo Sachio Cafe" class="w-32 h-32">
+                            <img src="{{ asset('assets/images/logo.jpg') }}" alt="Logo Sachio Cafe" class="w-32 h-32 hidden lg:block">
                             <div class="flex flex-col items-start justify-end space-y-2 text-end">
                                 <p class="text-lg font-semibold leading-4 opacity-80 text-end text-gray-800 dark:text-gray-400">
                                     Sachio Cafe
@@ -17,10 +17,10 @@
                         </div>
                     </div>
                 </div>
-                <h1 class="px-4 mb-8 text-2xl font-semibold tracking-wide text-gray-700 dark:text-gray-300">
+                <h1 class="px-4 mb-0 text-2xl font-semibold tracking-wide text-gray-700 dark:text-gray-300">
                     Thank you. Your order has been received.<br>
-                    <span class="text-red-500 text-sm">* Check your email, the order will be sent to your email as your purchase history</span>
                 </h1>
+                <span class="px-4 mb-8 block text-red-500 text-xs leading-4">* Check your email, the order will be sent to your email as your purchase history</span>
                 <div class="flex border-b border-gray-200 dark:border-gray-700  items-stretch justify-start w-full h-full px-4 mb-8 md:flex-row xl:flex-col md:space-x-6 lg:space-x-8 xl:space-x-0">
                     <div class="flex items-start justify-start flex-shrink-0">
                         <div class="flex items-center justify-center w-full pb-6 space-x-4 md:justify-start">
