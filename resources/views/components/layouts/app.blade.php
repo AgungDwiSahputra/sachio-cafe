@@ -18,6 +18,8 @@
 
         @livewireScripts
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="//html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+        
         <x-livewire-alert::scripts />
     </body>
 </html>

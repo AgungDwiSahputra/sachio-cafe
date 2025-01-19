@@ -1,18 +1,36 @@
 <div class="py-48 pt-16">
-    <section class="flex items-center font-poppins dark:bg-gray-800 ">
+    <section id="invoice_{{ $datas['order']['id'] }}" class="flex items-center font-poppins dark:bg-gray-800 ">
         <div class="justify-center flex-1 max-w-6xl px-4 py-4 mx-auto bg-white border rounded-md dark:border-gray-900 dark:bg-gray-900 md:py-10 md:px-10">
             <div>
-                <h1 class="px-4 mb-8 text-2xl font-semibold tracking-wide text-gray-700 dark:text-gray-300 ">
-                    Thank you. Your order has been received. </h1>
+                <div class="flex border-b border-gray-200 dark:border-gray-700 items-stretch justify-end w-full h-full px-4 mb-8 md:flex-row xl:flex-col md:space-x-6 lg:space-x-8 xl:space-x-0">
+                    <div class="flex items-start justify-end flex-shrink-0">
+                        <div class="flex items-center justify-between w-full pb-6 space-x-4">
+                            <img src="{{ asset('assets/images/logo.jpg') }}" alt="Logo Sachio Cafe" class="w-32 h-32">
+                            <div class="flex flex-col items-start justify-end space-y-2 text-end">
+                                <p class="text-lg font-semibold leading-4 opacity-80 text-end text-gray-800 dark:text-gray-400">
+                                    Sachio Cafe
+                                </p>
+                                <p class="text-sm text-end leading-4 opacity-80 text-gray-600 dark:text-gray-400">Jl. Arjuna Utara No.9, Duri Kepa, Kec. Kb. Jeruk</p>
+                                <p class="text-sm text-end leading-4 opacity-80 text-gray-600 dark:text-gray-400">Kota Jakarta Barat, DKI Jakarta</p>
+                                <p class="text-sm text-end leading-4 opacity-80 cursor-pointer text-gray-600 dark:text-gray-400">Phone: 082110860615 | admin@sachiocafe.shop</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h1 class="px-4 mb-8 text-2xl font-semibold tracking-wide text-gray-700 dark:text-gray-300">
+                    Thank you. Your order has been received.<br>
+                    <span class="text-red-500 text-sm">* Check your email, the order will be sent to your email as your purchase history</span>
+                </h1>
                 <div class="flex border-b border-gray-200 dark:border-gray-700  items-stretch justify-start w-full h-full px-4 mb-8 md:flex-row xl:flex-col md:space-x-6 lg:space-x-8 xl:space-x-0">
                     <div class="flex items-start justify-start flex-shrink-0">
                         <div class="flex items-center justify-center w-full pb-6 space-x-4 md:justify-start">
                             <div class="flex flex-col items-start justify-start space-y-2">
                                 <p class="text-lg font-semibold leading-4 text-left text-gray-800 dark:text-gray-400">
-                                    Cielo Schimmel</p>
-                                <p class="text-sm leading-4 text-gray-600 dark:text-gray-400">71582 Schmitt Springs</p>
-                                <p class="text-sm leading-4 text-gray-600 dark:text-gray-400">Castro Valley, Delaware, 53476-0454</p>
-                                <p class="text-sm leading-4 cursor-pointer dark:text-gray-400">Phone: 587-019-6103</p>
+                                    {{ $datas['address']['first_name'] . ' ' . $datas['address']['last_name'] }}
+                                </p>
+                                <p class="text-sm leading-4 text-gray-600 dark:text-gray-400">{{ $datas['address']['address'] }}</p>
+                                <p class="text-sm leading-4 text-gray-600 dark:text-gray-400">{{ $datas['address']['city'] . ', ' . $datas['address']['state'] . ', ' . $datas['address']['zip_code'] }}</p>
+                                <p class="text-sm leading-4 cursor-pointer dark:text-gray-400">Phone: {{ $datas['address']['phone'] . ' | ' . $datas['address']['email'] }}</p>
                             </div>
                         </div>
                     </div>
@@ -22,25 +40,28 @@
                         <p class="mb-2 text-sm leading-5 text-gray-600 dark:text-gray-400 ">
                             Order Number: </p>
                         <p class="text-base font-semibold leading-4 text-gray-800 dark:text-gray-400">
-                            29</p>
+                            {{ $datas['order']['id'] }}
+                        </p>
                     </div>
                     <div class="w-full px-4 mb-4 md:w-1/4">
                         <p class="mb-2 text-sm leading-5 text-gray-600 dark:text-gray-400 ">
                             Date: </p>
                         <p class="text-base font-semibold leading-4 text-gray-800 dark:text-gray-400">
-                            17-02-2024</p>
+                            {{ date('d-m-Y', strtotime($datas['order']['created_at'])) }}
+                        </p>
                     </div>
                     <div class="w-full px-4 mb-4 md:w-1/4">
                         <p class="mb-2 text-sm font-medium leading-5 text-gray-800 dark:text-gray-400 ">
                             Total: </p>
                         <p class="text-base font-semibold leading-4 text-yellow-600 dark:text-gray-400">
-                            Rp. 157,495.00</p>
+                            Rp. {{ number_format($datas['order']['grand_total'], 0, ',', '.') }}
+                        </p>
                     </div>
                     <div class="w-full px-4 mb-4 md:w-1/4">
                         <p class="mb-2 text-sm leading-5 text-gray-600 dark:text-gray-400 ">
                             Payment Method: </p>
                         <p class="text-base font-semibold leading-4 text-gray-800 dark:text-gray-400 ">
-                            Cash on Delivery </p>
+                            QRIS </p>
                     </div>
                 </div>
                 <div class="px-4 mb-10">
@@ -50,21 +71,25 @@
                             <div class="flex flex-col items-center justify-center w-full pb-4 space-y-4 border-b border-gray-200 dark:border-gray-700">
                                 <div class="flex justify-between w-full">
                                     <p class="text-base leading-4 text-gray-800 dark:text-gray-400">Subtotal</p>
-                                    <p class="text-base leading-4 text-gray-600 dark:text-gray-400">Rp. 157,495.00</p>
+                                    <p class="text-base leading-4 text-gray-600 dark:text-gray-400">
+                                        Rp. {{ number_format($datas['order']['grand_total'], 0, ',', '.') }}
+                                    </p>
                                 </div>
                                 <div class="flex items-center justify-between w-full">
                                     <p class="text-base leading-4 text-gray-800 dark:text-gray-400">Discount
                                     </p>
-                                    <p class="text-base leading-4 text-gray-600 dark:text-gray-400">00</p>
+                                    <p class="text-base leading-4 text-gray-600 dark:text-gray-400">0</p>
                                 </div>
                                 <div class="flex items-center justify-between w-full">
                                     <p class="text-base leading-4 text-gray-800 dark:text-gray-400">Shipping</p>
-                                    <p class="text-base leading-4 text-gray-600 dark:text-gray-400">00</p>
+                                    <p class="text-base leading-4 text-gray-600 dark:text-gray-400">0</p>
                                 </div>
                             </div>
                             <div class="flex items-center justify-between w-full">
                                 <p class="text-base font-semibold leading-4 text-gray-800 dark:text-gray-400">Total</p>
-                                <p class="text-base font-semibold leading-4 text-gray-600 dark:text-gray-400">Rp. 157,495.00</p>
+                                <p class="text-base font-semibold leading-4 text-gray-600 dark:text-gray-400">
+                                    Rp. {{ number_format($datas['order']['grand_total'], 0, ',', '.') }}
+                                </p>
                             </div>
                         </div>
                         <div class="flex flex-col w-full px-2 space-y-4 md:px-8 ">
@@ -83,7 +108,7 @@
                                         </p>
                                     </div>
                                 </div>
-                                <p class="text-lg font-semibold leading-6 text-gray-800 dark:text-gray-400">00</p>
+                                <p class="text-lg font-semibold leading-6 text-gray-800 dark:text-gray-400">0</p>
                             </div>
                         </div>
                     </div>
@@ -92,11 +117,29 @@
                     <a wire:navigate href="/products" class="w-full text-center px-4 py-2 text-yellow-500 border border-yellow-500 rounded-md md:w-auto hover:text-white hover:bg-yellow-600 dark:border-gray-700 dark:hover:bg-gray-700 dark:text-gray-300">
                         Go back shopping
                     </a>
-                    <a wire:navigate href="/orders" class="w-full text-center px-4 py-2 bg-yellow-500 rounded-md text-gray-50 md:w-auto dark:text-gray-300 hover:bg-yellow-600 dark:hover:bg-gray-700 dark:bg-gray-800">
+                    <button id="download-invoice" class="w-full text-center px-4 py-2 bg-yellow-500 rounded-md text-gray-50 md:w-auto dark:text-gray-300 hover:bg-yellow-600 dark:hover:bg-gray-700 dark:bg-gray-800">
+                        Download Invoice
+                    </button>
+                    {{-- <a wire:navigate href="/orders" class="w-full text-center px-4 py-2 bg-yellow-500 rounded-md text-gray-50 md:w-auto dark:text-gray-300 hover:bg-yellow-600 dark:hover:bg-gray-700 dark:bg-gray-800">
                         View My Orders
-                    </a>
+                    </a> --}}
                 </div>
             </div>
         </div>
     </section>
 </div>
+
+<script>
+    document.getElementById('download-invoice').addEventListener('click', function () {
+        const invoiceElement = document.getElementById('invoice_{{ $datas['order']['id'] }}');
+        
+        html2canvas(invoiceElement).then((canvas) => {
+            // Buat URL dari canvas
+            const link = document.createElement('a');
+            link.download = 'invoice_{{ $datas["order"]["id"] }}.jpg';
+            link.href = canvas.toDataURL('image/jpeg', 1.0); // Simpan sebagai JPG
+            link.click(); // Mulai unduhan
+        });
+    });
+</script>
+
