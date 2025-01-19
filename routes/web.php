@@ -11,6 +11,7 @@ use App\Livewire\CheckoutPage;
 use App\Livewire\HomePage;
 use App\Livewire\MyOrdersDetailPage;
 use App\Livewire\MyOrdersPage;
+use App\Livewire\PaymentPage;
 use App\Livewire\ProductDetailPage;
 use App\Livewire\ProductsPage;
 use App\Livewire\SuccessPage;
@@ -24,7 +25,8 @@ Route::get("/products/{slug}", ProductDetailPage::class)->name("product.detail")
 
 Route::get("/checkout", CheckoutPage::class)->name("checkout");
 Route::get("/my-orders", MyOrdersPage::class)->name("my-orders");
-Route::get("/success", SuccessPage::class)->name("success");
+Route::get("/payment/{order}", PaymentPage::class)->name("payment");
+Route::get("/success/{payment}", SuccessPage::class)->name("success");
 Route::get("/cancel", CancelPage::class)->name("cancel");
 Route::get("/my-orders/{order}", MyOrdersDetailPage::class)->name("my-orders.detail");
 
