@@ -244,7 +244,8 @@ class OrderResource extends Resource
                     ->formats([
                         ExportFormat::Xlsx,
                     ])
-                    ->fileName(fn (Export $export): string => "orders-{$export->getKey()}.xlsx")
+                    ->fileName(fn (Export $export): string => "orders-{$export->getKey()}")
+                    ->fileDisk("public")
             ]);
     }
 
