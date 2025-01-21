@@ -31,7 +31,7 @@ class CartManagement {
                     'image'=> $product->images[0],
                     'quantity'=> $qty,
                     'unit_amount'=> $product->price,
-                    'total_amount'=> $product->price*$qty
+                    'total_amount'=> $product->price
                 ];
             }
         }
