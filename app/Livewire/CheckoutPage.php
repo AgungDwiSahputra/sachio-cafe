@@ -19,6 +19,7 @@ class CheckoutPage extends Component
     public $city;
     public $state;
     public $zip_code;
+    public $shipping_method;
     public $payment_method;
 
     public function mount(){
@@ -38,6 +39,7 @@ class CheckoutPage extends Component
             "city"=> "required",
             "state"=> "required",
             "zip_code"=> "required",
+            "shipping_method"=> "required",
             "payment_method"=> "required",
         ]);
 
@@ -51,6 +53,7 @@ class CheckoutPage extends Component
             "city"=> $this->city,
             "state"=> $this->state,
             "zip_code"=> $this->zip_code,
+            "shipping_method"=> $this->shipping_method,
             "payment_method"=> $this->payment_method,
             "grand_total"=>CartManagement::calculateGrandTotal($cart_items) + rand(1, 999)
         ];

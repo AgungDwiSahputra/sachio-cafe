@@ -43,7 +43,9 @@
                             </p>
                         </div>
                         <div class="mt-1 flex items-center gap-x-2">
-                            <div>Delivery</div>
+                            <div>
+                                {{ $order->shipping_method == 'delivery' ? 'Delivery' : 'Pick Up' }}
+                            </div>
                         </div>
                     </div>
                 </div>
