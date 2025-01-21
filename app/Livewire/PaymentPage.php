@@ -19,6 +19,7 @@ class PaymentPage extends Component
     public $city;
     public $state;
     public $zip_code;
+    public $shipping_method;
     public $payment_method;
     public $grand_total;
 
@@ -43,7 +44,7 @@ class PaymentPage extends Component
         $order->payment_status = 'paid';
         $order->status = 'new';
         $order->shipping_amount = 0;
-        $order->shipping_method = 'delivery';
+        $order->shipping_method = $this->shipping_method;
         $order->notes = 'Order placed by ' . $full_name;
         $order->save();
 
@@ -84,6 +85,7 @@ class PaymentPage extends Component
         $this->city = $this->datas->city;
         $this->state = $this->datas->state;
         $this->zip_code = $this->datas->zip_code;
+        $this->shipping_method = $this->datas->shipping_method;
         $this->payment_method = $this->datas->payment_method;
         $this->grand_total = $this->datas->grand_total;
         
